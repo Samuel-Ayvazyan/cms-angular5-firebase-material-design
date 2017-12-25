@@ -1,0 +1,10 @@
+<ul>
+  <div *ngFor="let page of pagesObservable | async">
+    <h3>{{page.title}}</h3>
+    <p>{{page.description}}</p>
+    <div>
+      <a href="{{page.url}}">Go to page</a>
+    </div>
+
+  </div>
+</ul>
