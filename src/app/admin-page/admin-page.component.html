@@ -1,5 +1,20 @@
 <app-navbar></app-navbar>
-<p>
-  admin-page works!
-</p>
-<router-outlet></router-outlet>
+<mat-drawer-container class="example-container" autosize>
+    <mat-drawer #drawer class="example-sidenav" mode="side">
+
+      <mat-nav-list>
+        <mat-list-item *ngFor="let link of links">
+            <a matLine routerLink="/admin/{{link.link}}">{{ link.name }}</a>
+        </mat-list-item>
+      </mat-nav-list>
+
+    </mat-drawer>
+  
+    <div class="example-sidenav-content">
+      <button type="button" mat-button (click)="drawer.toggle()">
+        <i class="material-icons">menu</i>
+      </button>
+      <router-outlet></router-outlet>
+    </div>
+  
+  </mat-drawer-container>
