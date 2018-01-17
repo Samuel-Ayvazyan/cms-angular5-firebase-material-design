@@ -7,12 +7,14 @@ import { AdminPageComponent } from './admin-page.component';
 import { AppNavbarComponent } from './app-navbar/app-navbar.component';
 import { MenusComponent } from './menus/menus.component';
 import { PostsComponent } from './posts/posts.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
     CommonModule,
     MaterialModule,
-    AdminRoutingModule
+    AdminRoutingModule,
+    FormsModule
   ],
   declarations: [DashboardComponent, AdminPageComponent, AppNavbarComponent, MenusComponent, PostsComponent]
 })

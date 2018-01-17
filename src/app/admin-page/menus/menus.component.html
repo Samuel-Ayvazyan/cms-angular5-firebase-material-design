@@ -1,3 +1,44 @@
-<p>
-  menus works!
-</p>
+<div>
+    <mat-form-field>
+        <input matInput placeholder="Title" [(ngModel)]="menuDetails.title">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput placeholder="URL" [(ngModel)]="menuDetails.url">
+    </mat-form-field>
+    <button mat-raised-button color="primary" (click)="addMenu()">Add</button>
+</div>
+<div class="example-container mat-elevation-z8">
+    <div class="example-header-filter">
+      <mat-form-field>
+        <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+      </mat-form-field>
+    </div>
+  
+    <mat-table #table [dataSource]="dataSource" matSort>
+  
+      <!-- Position Column -->
+      <ng-container matColumnDef="id">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> ID </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.id}} </mat-cell>
+      </ng-container>
+  
+      <!-- Name Column -->
+      <ng-container matColumnDef="title">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Title </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.title}} </mat-cell>
+      </ng-container>
+  
+      <!-- Weight Column -->
+      <ng-container matColumnDef="url">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> URL </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.url}} </mat-cell>
+      </ng-container>
+  
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+    <mat-paginator #paginator
+        [pageSize]="10"
+        [pageSizeOptions]="[5, 10, 20]">
+    </mat-paginator>
+  </div>
