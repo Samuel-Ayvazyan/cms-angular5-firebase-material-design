@@ -8,6 +8,8 @@ import { AppNavbarComponent } from './app-navbar/app-navbar.component';
 import { MenusComponent } from './menus/menus.component';
 import { PostsComponent } from './posts/posts.component';
 import { FormsModule } from '@angular/forms';
+import { ConfirmationDialogComponent } from './shared/confirmation-dialog/confirmation-dialog.component';
+import { EditMenuComponent } from './menus/edit-menu/edit-menu.component';
 
 @NgModule({
   imports: [
@@ -16,6 +18,8 @@ import { FormsModule } from '@angular/forms';
     AdminRoutingModule,
     FormsModule
   ],
-  declarations: [DashboardComponent, AdminPageComponent, AppNavbarComponent, MenusComponent, PostsComponent]
+  declarations: [DashboardComponent, AdminPageComponent, AppNavbarComponent, MenusComponent, PostsComponent, 
+    ConfirmationDialogComponent, ConfirmationDialogComponent, EditMenuComponent],
+  entryComponents: [ConfirmationDialogComponent, EditMenuComponent]
 })
 export class AdminPageModule { }

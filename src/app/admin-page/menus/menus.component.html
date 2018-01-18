@@ -16,24 +16,33 @@
   
     <mat-table #table [dataSource]="dataSource" matSort>
   
-      <!-- Position Column -->
       <ng-container matColumnDef="id">
         <mat-header-cell *matHeaderCellDef mat-sort-header> ID </mat-header-cell>
         <mat-cell *matCellDef="let element"> {{element.id}} </mat-cell>
       </ng-container>
   
-      <!-- Name Column -->
       <ng-container matColumnDef="title">
         <mat-header-cell *matHeaderCellDef mat-sort-header> Title </mat-header-cell>
         <mat-cell *matCellDef="let element"> {{element.title}} </mat-cell>
       </ng-container>
   
-      <!-- Weight Column -->
       <ng-container matColumnDef="url">
         <mat-header-cell *matHeaderCellDef mat-sort-header> URL </mat-header-cell>
         <mat-cell *matCellDef="let element"> {{element.url}} </mat-cell>
       </ng-container>
   
+      <ng-container matColumnDef="actions">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>  </mat-header-cell>
+        <mat-cell *matCellDef="let element">
+          <button mat-icon-button color="primary" (click)="openEditDialog(element.id, element.title, element.url)">
+            <mat-icon aria-label="edit">mode_edit</mat-icon>
+          </button>
+          <button mat-icon-button color="warn" (click)="openDialog(element.id)">
+            <mat-icon aria-label="delete">delete</mat-icon>
+          </button>
+        </mat-cell>
+      </ng-container>
+
       <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
       <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
     </mat-table>
