@@ -1,3 +1,67 @@
-<p>
-  posts works!
-</p>
+<div>
+  <form [formGroup]="postForm">
+    <mat-form-field>
+        <input matInput placeholder="Title" formControlName="title">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-select placeholder="Select Menu" formControlName="menu_id">
+          <mat-option *ngFor="let menu of menusList" [value]="menu.id" >
+            {{ menu.title }}
+          </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+        <textarea matInput placeholder="Content" formControlName="content"></textarea>
+    </mat-form-field>
+    <button mat-raised-button color="primary" (click)="addPost()" [disabled]="!postForm.valid">Add</button>
+  </form>
+</div>
+<div class="example-container mat-elevation-z8">
+    <div class="example-header-filter">
+      <mat-form-field>
+        <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+      </mat-form-field>
+    </div>
+  
+    <mat-table #table [dataSource]="dataSource" matSort>
+  
+      <ng-container matColumnDef="id">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> ID </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.id}} </mat-cell>
+      </ng-container>
+  
+      <ng-container matColumnDef="title">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Title </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.title}} </mat-cell>
+      </ng-container>
+  
+      <ng-container matColumnDef="menu_id">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Menu ID </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.menu_id}} </mat-cell>
+      </ng-container>
+  
+      <ng-container matColumnDef="content">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Content </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.content}} </mat-cell>
+      </ng-container>
+      
+      <ng-container matColumnDef="actions">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>  </mat-header-cell>
+        <mat-cell *matCellDef="let element">
+          <button mat-icon-button color="primary" (click)="openEditDialog(element.id, element.title, element.menu_id, element.content)">
+            <mat-icon aria-label="edit">mode_edit</mat-icon>
+          </button>
+          <button mat-icon-button color="warn" (click)="openDialog(element.id)">
+            <mat-icon aria-label="delete">delete</mat-icon>
+          </button>
+        </mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+    <mat-paginator #paginator
+        [pageSize]="10"
+        [pageSizeOptions]="[5, 10, 20]">
+    </mat-paginator>
+  </div>

@@ -3,7 +3,8 @@ import { AngularFirestore } from 'angularfire2/firestore';
 
 export interface Post {
   title: "",
-  url: ""
+  menu_id: "",
+  content: ""
 }
 
 @Injectable()

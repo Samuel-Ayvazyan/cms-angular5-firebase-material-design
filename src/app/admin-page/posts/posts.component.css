@@ -1,0 +1,12 @@
+.example-container {
+    padding: 10px;
+}
+.example-header-filter .mat-form-field {
+    width: 100%;
+}
+.mat-form-field {
+    padding: 10px;
+}
+.mat-column-actions {
+    flex: 0 0 100px;
+}
