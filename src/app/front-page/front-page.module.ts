@@ -5,7 +5,7 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { FrontRoutingModule } from './front-routing.module';
 import { FrontPageComponent } from './front-page.component';
 import { AppNavbarComponent } from './app-navbar/app-navbar.component';
-import { MaterialModule } from '../admin-page/material.module';
+import { MaterialModule } from '../material.module';
 import { PagesComponent } from './pages/pages.component';
 
 @NgModule({

@@ -21,6 +21,16 @@ export class MenusService {
         })
       });
   }
+  getConditionalMenus(field: string, condition: any, value: string) {
+    return this.afs.collection("menus", ref => ref.where(field, condition, value)).snapshotChanges()
+      .map( menu => {
+        return menu.map ( a => {
+          const data = a.payload.doc.data() as Menu;
+          const id = a.payload.doc.id;
+          return {id, ...data};
+        })
+      });
+  }
   addMenu(menu: Menu) {
     this.afs.collection("menus").add(menu);
   }
