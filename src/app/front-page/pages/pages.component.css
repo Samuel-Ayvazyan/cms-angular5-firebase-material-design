@@ -1,0 +1,20 @@
+.cards {
+    column-count: 3;
+    -webkit-column-count: 3;
+    column-gap: 1;
+    -webkit-column-gap: 1;
+    padding: 10px;
+}
+mat-card {
+    display: inline-block;
+    position: static;
+    margin: 10px;
+    break-inside: avoid;
+    -webkit-column-break-inside: avoid;
+    width: 90%;
+}
+.cards {
+    background: #BE93C5;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to left, #7BC6CC, #BE93C5);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to left, #7BC6CC, #BE93C5); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */    
+}

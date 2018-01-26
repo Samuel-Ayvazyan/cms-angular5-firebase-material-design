@@ -1,13 +1,13 @@
 <mat-toolbar color="primary">
   <mat-toolbar-row>
-    <button mat-button routerLink="/">Angular CMS</button>
+    <button mat-button routerLink="/">JS Tech Blog</button>
 
     <span class="example-spacer"></span>
 
     <div *ngFor="let menu of menusList">
         <button mat-button routerLink="/home/pages/{{menu.url}}">{{menu.title}}</button>
     </div>
-    <button mat-button routerLink="/home/article">Article Page</button>
+    <button mat-button routerLink="/home/article">Pro Blog</button>
 
     <div *ngIf="! user">
       <button mat-button (click)="afService.loginWithGoogle()">Login</button>
