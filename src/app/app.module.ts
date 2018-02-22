@@ -20,6 +20,7 @@ import { MaterialModule } from './material.module';
 import { MenusService } from './service/menus/menus.service';
 import { PostsService } from './service/posts/posts.service';
 
+import { ServiceWorkerModule } from '@angular/service-worker';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { PostsService } from './service/posts/posts.service';
     AngularFireDatabaseModule,
     AngularFireAuthModule,
     AngularFirestoreModule,
-    MaterialModule
+    MaterialModule,
+    ServiceWorkerModule.register('/ngsw-worker.js', {enabled: environment.production})
   ],
   providers: [AfService, AdminGuard, SubscriberGuard, MenusService, PostsService],
   bootstrap: [AppComponent]
