@@ -1,6 +1,8 @@
-# CmsAngular5Firebase
+# CMS - Angular 5 + Firebase + Material Design
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.6.0.
+This project was built during Video Tutorial about creating Content Management System from scratch using Angular 5, Google Firebase and Firestore, Material Design.
+
+- [Live Demo](http://cms-angular5-firebase.freedom-dev.com/)
 
 ## Development server
 
